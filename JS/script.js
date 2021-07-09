@@ -72,31 +72,27 @@ data.myProfile.posts.forEach((post) => {
 })
 
 // ---------------------------------------------------------------------
-
-
-var button= document.querySelector(".send")
-function addp(){
-    let postnewHTML=docuemnt.querySelector(".addP").value;
-    if(!postnewHTML==""){
-        let postHtml = `
-    <div class="post-details"> 
-        <div class="user-pic">
-            <img src="${data.myProfile.details.pic}" alt="user pic">
+let sbutton = document.querySelector(".send").addEventListener("click", addpost)
+function addpost() {
+    let postNewHTML = document.querySelector(".newpost").value;
+       let postHtml = `
+        <div class="post-details"> 
+            <div class="user-pic">
+                <img src="${data.myProfile.details.pic}" alt="user pic">
+            </div>
+            <div class="details">
+                <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
+                <div class="post-date">10-07-2021</div>
+            </div>
+        </div> 
+        <div class="delete"><i class="fas fa-trash-alt"></i></div>
+        <div class="post-text">
+            ${postNewHTML}
         </div>
-        <div class="details">
-            <div class="user-name">${data.myProfile.details.name} ${data.myProfile.details.surname}</div>
-            <div class="post-date">${post.date}</div>
-        </div>
-    </div> 
-    <div class="post-text">
-        ${post.text}
-    </div>
-` 
-postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
-postnewHTML="";
-console.log(postnewHTML)
+    `
+        postListHtml.innerHTML += `<div class="post"> ${postHtml} </div>`
+        console.log(postNewHTML)
     }
-}
 
 
 
